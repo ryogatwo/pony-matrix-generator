@@ -2,7 +2,7 @@
 
 An interactive prompt generator for My Little Pony characters using Pony Diffusion V6 XL.
 
-    Version: 1.3.0
+    Version: 1.4.0
     Date: 2025-12-26
     Model Target: Pony Diffusion V6 XL
 
