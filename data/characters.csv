@@ -1,36 +1,40 @@
 name,tags,nsfw_tags
-twilight sparkle,1character|solo|purple coat|dark blue mane|pink stripe|horn|wings|magic aura|intelligent|leader,lingerie|horn glow|blush|arched back|looking back
-fluttershy,1character|solo|yellow coat|pink mane|wings|shy expression|gentle,exposed flank|bedroom eyes|nervous blush|wet mane
-rainbow dash,1character|solo|blue coat|rainbow mane|wings|flying|athletic|confident,tight shorts|sweaty|dominant pose|midair pose
-pinkie pie,1character|solo|pink coat|curly pink mane|energetic|party theme|smiling,balloons|whipped cream|silly sexy|tongue out
-applejack,1character|solo|orange coat|blonde mane|cowgirl hat|freckles|strong|honest,open shirt|tight jeans|hay bale background
-rarity,1character|solo|white coat|purple curled mane|horn|elegant|fashionable|jewelry,lace dress|corset|elegant tease|looking over shoulder
+twilight sparkle,1character|solo|pony|alicorn|quadruped|purple coat|dark blue mane|pink stripe|straight mane|horn|wings|large cartoon eyes|rounded muzzle|short snout|cutie mark|magic aura|bookish|leader,lingerie|arched back|glowing horn|soft blush
+fluttershy,1character|solo|pony|pegasus|quadruped|yellow coat|long flowing pink mane|wings folded|gentle eyes|rounded muzzle|cutie mark|timid posture,blush|looking down|exposed flank
+rainbow dash,1character|solo|pony|pegasus|quadruped|sky blue coat|rainbow mane|short messy mane|wings spread|athletic build|rounded muzzle|cutie mark|flying pose,tight flight suit|sweaty|cocky grin
+pinkie pie,1character|solo|pony|earth pony|quadruped|pink coat|curly bouncy mane|large cartoon eyes|rounded muzzle|cutie mark|party vibe|energetic pose,whipped cream|sprinkles
+applejack,1character|solo|pony|earth pony|quadruped|orange coat|blonde mane|braided tail|cowgirl hat|freckles|strong build|rounded muzzle|cutie mark,open shirt|tight jeans
+rarity,1character|solo|pony|unicorn|quadruped|white coat|luxurious curled purple mane|horn|long eyelashes|elegant posture|rounded muzzle|cutie mark,corset|lace dress
 
-starlight glimmer,1character|solo|purple coat|teal purple mane|horn|magic aura|reformed,glow magic|hip sway|teasing smile
-sunset shimmer,1character|solo|amber coat|red yellow mane|horn|determined|reformed,leather jacket open|mirror portal glow|bedroom setting
-princess celestia,1character|solo|white coat|flowing pastel mane|horn|wings|royal|sun motif,sheer gown|royal bedroom|relaxed pose
-princess luna,1character|solo|dark blue coat|starry mane|horn|wings|moon motif|serene,lunar glow|moonlight through window|suggestive
-princess cadance,1character|solo|pink coat|yellow purple mane|horn|wings|crystal heart|loving,love magic|bridal lingerie|long flowing fabric
+starlight glimmer,1character|solo|pony|unicorn|quadruped|lavender coat|teal purple mane|horn|rounded muzzle|cutie mark|magic aura|reformed villain,soft blush
+sunset shimmer,1character|solo|pony|unicorn|quadruped|amber coat|red yellow mane|horn|rounded muzzle|cutie mark|determined expression,leather jacket
+princess celestia,1character|solo|pony|alicorn|quadruped|white coat|flowing pastel mane|horn|wings|tall regal build|rounded muzzle|cutie mark,royal robe
+princess luna,1character|solo|pony|alicorn|quadruped|navy blue coat|starry flowing mane|horn|wings|rounded muzzle|cutie mark|moonlight theme,night gown
+princess cadance,1character|solo|pony|alicorn|quadruped|pink coat|gold purple mane|horn|wings|rounded muzzle|cutie mark|love aura,bridal veil
 
-spike,1character|solo|dragon|purple scales|green spikes|small|assistant|friendly,bowtie|suit vest|holding flowers
-tempest shadow,1character|solo|dark purple coat|mohawk mane|broken horn|armor|warrior,leather straps|dominant stance|backlit
-trixie,1character|solo|blue coat|silver mane|horn|showmare|wizard hat|boastful,stage lights|cape swish|sultry pose
+spike,1character|solo|dragon|quadruped|small body|purple scales|green spines|short snout|cartoon proportions|assistant role,bowtie
+tempest shadow,1character|solo|pony|unicorn|quadruped|dark purple coat|broken horn|mohawk mane|scar|rounded muzzle|cutie mark|military posture,armor
+trixie,1character|solo|pony|unicorn|quadruped|blue coat|light blue mane|horn|rounded muzzle|cutie mark|dramatic showmare,cape|top hat
+discord,1character|solo|draconequus|non-pony|serpentine body|mismatched limbs|floating|chaos magic|cartoon proportions,teasing pose
+queen chrysalis,1character|solo|pony|changeling|quadruped|black chitin|holes in legs|insect wings|green mane|horn|fangs|rounded muzzle|villain aura,slimy texture
 
-discord,1character|solo|draconequus|mismatched limbs|chaos magic|floating|grinning,chaotic tentacle|teasing pose|background distortion
-queen chrysalis,1character|solo|changeling queen|black carapace|green mane|horn|villain,slimy|dripping magic|seductive eyes|dark cave
+apple bloom,1character|solo|pony|earth pony|quadruped|yellow coat|red mane|pink bow|large eyes|rounded muzzle|cutie mark crusader,cute blush
+sweetie belle,1character|solo|pony|unicorn|quadruped|white coat|pink purple mane|horn|large eyes|rounded muzzle|cutie mark crusader
+scootaloo,1character|solo|pony|pegasus|quadruped|orange coat|short purple mane|small wings|rounded muzzle|cutie mark crusader,confident pose
 
-apple bloom,1character|solo|yellow coat|red mane|pink bow|cutie mark crusader,socks|blush|innocent look
-sweetie belle,1character|solo|white coat|pink purple mane|horn|cutie mark crusader,knee-high socks|blush|cute pose
-scootaloo,1character|solo|orange coat|purple mane|wings|cutie mark crusader,hoodie partially off|shy tough look
+vinyl scratch,1character|solo|pony|unicorn|quadruped|white coat|electric blue mane|horn|sunglasses|rounded muzzle|cutie mark|dj vibe,club lights
+octavia melody,1character|solo|pony|earth pony|quadruped|gray coat|black mane|formal posture|rounded muzzle|cutie mark|classical music,long dress
+lyra heartstrings,1character|solo|pony|unicorn|quadruped|mint green coat|cyan white mane|horn|rounded muzzle|cutie mark|quirky smile
+bon bon,1character|solo|pony|earth pony|quadruped|cream coat|blue pink mane|rounded muzzle|cutie mark|secret agent vibe,sunglasses
 
-vinyl scratch,1character|solo|white coat|blue mane|sunglasses|dj pony,headphones|club lights|fishnets
-octavia melody,1character|solo|gray coat|black mane|formal|musician,long black dress|cello between legs|moody lighting
-lyra heartstrings,1character|solo|mint green coat|white blue mane|horn|quirky,obsessive expression|human hands
-bon bon,1character|solo|cream coat|blue pink mane|earth pony|secret agent,tied up|mouth open|latex suit
+smolder,1character|solo|dragon|biped|orange scales|purple spikes|teen build|cartoon proportions|student six|tough expression,hoodie
+silverstream,1character|solo|hippogriff|quadruped|light pink coat|blue mane|feathered wings|rounded muzzle|student six|cheerful,splashing water
+ocellus,1character|solo|changeling|quadruped|blue green carapace|small wings|rounded muzzle|student six|shy smile,blush
+gallus,1character|solo|griffon|quadruped|blue feathers|lion body|beak|rounded muzzle|student six|sarcastic look,school jacket
+sandbar,1character|solo|pony|earth pony|quadruped|seafoam coat|teal mane|rounded muzzle|student six|relaxed posture,hoodie
+yona,1character|solo|yak|quadruped|brown fur|braided mane|horns|rounded muzzle|student six|strong build|warm smile
 
-smolder,1character|solo|dragon|orange scales|confident|student six,tank top|spiked collar|claws up
-silverstream,1character|solo|hippogriff|pink blue colors|cheerful|student six,bikini|midair dive|splash
-ocellus,1character|solo|changeling|pale blue|shy|student six,glow shell|curled pose|timid look
-gallus,1character|solo|griffon|blue feathers|sarcastic|student six,sleeveless jacket|tough expression
-sandbar,1character|solo|light green coat|earth pony|relaxed|student six,hoodie|school desk|notebook
-yona,1character|solo|yak|braids|strong|student six,fur fluff|tight yak outfit|giant pillow
+king sombra,1character|solo|pony|unicorn|quadruped|dark gray coat|shadow mane|curved horn|glowing eyes|rounded muzzle|villain aura|dark magic,shadow smoke
+lord tirek,1character|solo|minotaur|biped|massive build|horns|red eyes|dark magic|villain|cartoon proportions,demonic aura
+cozy glow,1character|solo|pony|pegasus|quadruped|pink coat|curly mane|small wings|large innocent eyes|rounded muzzle|villain disguise,creepy smile
+nightmare moon,1character|solo|pony|alicorn|quadruped|dark blue coat|ethereal star mane|horn|wings|glowing eyes|rounded muzzle|villain form,shadow aura
