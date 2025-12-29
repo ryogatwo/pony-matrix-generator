@@ -3,16 +3,17 @@
 PONY DIFFUSION STABILITY MATRIX PROMPT GENERATOR (INTERACTIVE)
 ===============================================================================
 
-Version: 1.3.0
+Version: 1.4.0
 Date: 2025-12-26
-
 Model Target: Pony Diffusion V6 XL
 
-NEW IN v1.3.0
+NEW IN v1.4.0
 -------------
-✔ Optional NSFW-safe toggle (uses `nsfw_tags` column if present)
-✔ Fully commented logic for maintainability
-✔ 100% backward compatible with older CSVs
+✔ BREAK separator between positive / negative prompts
+✔ Theme system via theme.csv
+✔ Global anti-anthro / anti-human negative prompt
+✔ Explicit pony-lock compatibility
+✔ Fully commented, production-ready script
 """
 
 # =============================================================================
@@ -36,6 +37,7 @@ pony_matrix_prompt_generator/
     ├── environments.csv
     ├── actions.csv
     ├── outfits.csv
+    ├── theme.csv             (NEW)
     └── base_tags.csv
 
 3) RUN
@@ -69,9 +71,9 @@ def clear_screen():
     os.system("cls" if platform.system() == "Windows" else "clear")
 
 def print_header():
-    """Prints fancy ASCII header."""
+    """Prints ASCII header."""
     print("╔════════════════════════════════════════════════════╗")
-    print("║     🦄 Pony Diffusion Prompt Generator (v1.3)     ║")
+    print("║     🦄 Pony Diffusion Prompt Generator (v1.4)     ║")
     print("╚════════════════════════════════════════════════════╝\n")
 
 def load_csv(filename):
@@ -79,7 +81,10 @@ def load_csv(filename):
     Loads a CSV file from the /data directory.
     Returns a list of dictionaries (one per row).
     """
-    with open(DATA_DIR / filename, "r", encoding="utf-8") as f:
+    path = DATA_DIR / filename
+    if not path.exists():
+        raise FileNotFoundError(f"Missing required file: {path}")
+    with open(path, "r", encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 def parse_tags(tag_string):
@@ -123,6 +128,7 @@ styles = load_csv("styles.csv")
 environments = load_csv("environments.csv")
 actions = load_csv("actions.csv")
 outfits = load_csv("outfits.csv")
+themes = load_csv("theme.csv")
 base_tags = load_csv("base_tags.csv")
 
 # =============================================================================
@@ -137,6 +143,18 @@ for row in base_tags:
         positive_base.extend(parse_tags(row["tags"]))
     elif row["type"] == "negative":
         negative_base.extend(parse_tags(row["tags"]))
+
+# 🔒 GLOBAL STRICT PONY NEGATIVE PROMPT
+# Prevents humanoid / anthro drift in Pony Diffusion
+negative_base.extend([
+    "anthro",
+    "humanoid",
+    "human body",
+    "biped pony",
+    "hands",
+    "fingers",
+    "breasts"
+])
 
 # =============================================================================
 # CHARACTER SELECTION
@@ -163,22 +181,23 @@ def choose_character():
 # PROMPT GENERATION LOGIC
 # =============================================================================
 
-def generate_prompt(character, is_group, style, environment, action, outfit, include_nsfw):
+def generate_prompt(character, is_group, style, environment, action, outfit, theme, include_nsfw):
     """
-    Assembles the final positive and negative prompts.
+    Builds the final positive and negative prompts.
+
     NSFW tags are appended ONLY if:
-    - include_nsfw is True
+    - include_nsfw == True
     - character is solo
     - nsfw_tags column exists and is not empty
     """
 
-    # Start with base quality / source tags
+    # Start with base quality + source tags
     pos_tags = list(positive_base)
 
-    # Character tags
+    # Character anatomy & identity
     pos_tags.extend(parse_tags(character["tags"]))
 
-    # Optional NSFW tag injection (solo characters only)
+    # Optional NSFW tags (solo characters only)
     if (
         include_nsfw
         and not is_group
@@ -187,52 +206,59 @@ def generate_prompt(character, is_group, style, environment, action, outfit, inc
     ):
         pos_tags.extend(parse_tags(character["nsfw_tags"]))
 
-    # Remaining matrix components
+    # Style, outfit, action, environment
     pos_tags.extend(parse_tags(style["tags"]))
-    pos_tags.extend(parse_tags(environment["tags"]))
-    pos_tags.extend(parse_tags(action["tags"]))
     pos_tags.extend(parse_tags(outfit["tags"]))
+    pos_tags.extend(parse_tags(action["tags"]))
+    pos_tags.extend(parse_tags(environment["tags"]))
 
-    # Final formatting
-    pos_prompt = ", ".join(pos_tags)
-    neg_prompt = ", ".join(negative_base)
+    # Theme overlay (last so it flavors the scene)
+    pos_tags.extend(parse_tags(theme["tags"]))
 
+    # Final prompt strings
+    positive_prompt = ", ".join(pos_tags)
+    negative_prompt = ", ".join(negative_base)
+
+    # Metadata header
     meta = (
         f"{character['name']} | "
         f"{style['name']} | "
         f"{environment['name']} | "
         f"{action['name']} | "
-        f"{outfit['name']}"
+        f"{outfit['name']} | "
+        f"{theme['name']}"
     )
 
-    return pos_prompt, neg_prompt, meta
+    return positive_prompt, negative_prompt, meta
 
 # =============================================================================
-# SAVE PROMPT TO FILE
+# SAVE PROMPT TO FILE (WITH BREAK)
 # =============================================================================
 
 def save_prompt(pos, neg, meta):
-    """Appends a formatted prompt block to prompts.txt."""
+    """
+    Saves prompts using BREAK formatting
+    (compatible with Pony Diffusion / SD prompt splitters)
+    """
     with open(OUTPUT_FILE, "a", encoding="utf-8") as f:
         f.write(f"# Prompt for: {meta}\n")
-        f.write("Positive Prompt:\n```\n")
-        f.write(pos + "\n```\n")
-        f.write("Negative Prompt:\n```\n")
-        f.write(neg + "\n```\n\n")
+        f.write(pos + "\n")
+        f.write("BREAK\n")
+        f.write(neg + "\n\n")
 
 # =============================================================================
-# MAIN FUNCTION
+# MAIN PROGRAM
 # =============================================================================
 
 def main():
     clear_screen()
     print_header()
 
-    # Global toggle for NSFW tags
+    # NSFW toggle
     include_nsfw = input("🔞 Include NSFW tags (if available)? [y/N]: ").lower().startswith("y")
 
     # Character selection
-    char, is_group = choose_character()
+    character, is_group = choose_character()
     clear_screen()
     print_header()
 
@@ -253,6 +279,10 @@ def main():
     clear_screen()
     print_header()
 
+    theme = select_option(themes, "Theme")
+    clear_screen()
+    print_header()
+
     # Prompt count
     try:
         count = int(input("🔸 How many prompts would you like to generate? > "))
@@ -262,29 +292,29 @@ def main():
     # Generate prompts
     for i in range(count):
         pos, neg, meta = generate_prompt(
-            char,
+            character,
             is_group,
             style,
             environment,
             action,
             outfit,
+            theme,
             include_nsfw
         )
 
         save_prompt(pos, neg, meta)
 
-        print(f"\n✅ Prompt {i+1}/{count} for: {meta}")
+        print(f"\n✅ Prompt {i+1}/{count}")
         print("────────────────────────────")
-        print("Positive Prompt:")
         print(pos)
-        print("\nNegative Prompt:")
+        print("\nBREAK\n")
         print(neg)
         print("────────────────────────────")
 
     print(f"\n📁 All prompts saved to: {OUTPUT_FILE.resolve()}\n")
 
 # =============================================================================
-# RUN
+# RUN SCRIPT
 # =============================================================================
 
 if __name__ == "__main__":
